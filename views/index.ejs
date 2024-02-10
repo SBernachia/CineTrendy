@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineTrendy</title>
+    <link rel="stylesheet" href="css/main.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/f76534a51c.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <button class="btn"><i class="fa-solid fa-bars"></i></button>
+            <button class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </nav>
+    </header>
+
+    <main>
+        <section id="portada">
+            <div class="contenedor-principal">
+                <img class="contenedor-principal__imagen" src="<%=BASE_IMAGE_URL + popularMovies[0].backdrop_path %>" alt="">
+                <div class="contenedor-principal__resumen">
+                        <h2 class="resumen__titulo"><%= popularMovies[0].title %></h2>
+                        <p class="resumen__descripcion"><%= popularMovies[0].overview %></p>
+                        <p class="resumen__puntuacion">Puntuacion: <%= popularMovies[0].vote_average %></p>
+                </div>
+                <div class="contenedor-secundario">
+                    <div class="contenedor-card">
+                        <img class="card__image" src="<%= BASE_IMAGE_URL + popularMovies[1].poster_path %>" alt="">
+                        <h2 class="card__titulo"><%= popularMovies[1].title %></h2>
+                    </div>
+                    <div class="contenedor-card">
+                        <img class="card__image" src="<%= BASE_IMAGE_URL + popularMovies[2].poster_path %>" alt="">
+                        <h2 class="card__titulo"><%= popularMovies[2].title %></h2>
+                    </div>
+                    <div class="contenedor-card">
+                        <img class="card__image" src="<%= BASE_IMAGE_URL + popularMovies[3].poster_path %>" alt="">
+                        <h2 class="card__titulo"><%= popularMovies[3].title %></h2>
+                    </div>
+                    <div class="contenedor-card">
+                        <img class="card__image" src="<%= BASE_IMAGE_URL + popularMovies[4].poster_path %>" alt="">
+                        <h2 class="card__titulo"><%= popularMovies[4].title %></h2>
+                    </div>
+                </div>
+            </div> 
+        </section>
+        
+        <section id="mejorPuntuadas">
+            <h2 class="seccion-title">Mejores calificadas</h2>
+            <a class="btn-VerTodas" href="">Ver todas</a>
+            <div class="div-carrusel-mjPunt">
+
+                <button class="mejPunt__btn js-btn-left"><i class="fa-solid fa-chevron-left"></i></button>
+                
+                <div class="carrusel-mejPuntuadas">
+                    <div class="contenedor-cards js-div-carrusel">
+                        <% for( let i = 0; i < 10; i++ ) { %>
+                        <div class="mejPunt-card js-slider-card">
+                            <img class="mejPunt-card__imagen" src="<%= BASE_IMAGE_URL + topRatedList[i].backdrop_path %>" alt="">
+                            <h3 class="mejPunt-card__titulo"><%= topRatedList[i].title %></h3>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>
+                <button class="mejPunt__btn js-btn-rigth"><i class="fa-solid fa-chevron-right"></i></button>
+            
+            </div>
+            
+        </section>
+
+        <section>
+            <h2>Generos populares</h2>
+            <div class="genre-container">
+                <div>
+                    <h3>Acción</h3>
+                </div>
+                <div>
+                    <h3>Aventura</h3>
+                </div>
+                <div>
+                    <h3>Ciencia Ficción</h3>
+                </div>
+                <div>
+                    <h3>Drama</h3>
+                </div>
+                <div>
+                    <h3>Animación</h3>
+                </div>
+                <div>
+                    <h3>Comedia</h3>
+                </div>
+                <div>
+                    <h3>Romance</h3>
+                </div>
+                <div>
+                    <h3>Terror</h3>
+                </div>
+            </div>
+        </section>
+        
+    </main>
+    
+    <script src="scripts/carrousel.js"></script>
+</body>
+</html>

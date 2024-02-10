@@ -1,0 +1,18 @@
+{
+  "name": "cinetrendy",
+  "version": "1.0.0",
+  "description": "Pagina de recomendaciones de peliculas",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Sebastian Bernachia",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.6.5",
+    "body-parse": "^0.1.0",
+    "ejs": "^3.1.9",
+    "express": "^4.18.2"
+  }
+}
