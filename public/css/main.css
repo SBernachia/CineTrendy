@@ -1,5 +1,12 @@
+:root {
+    --dark-color : #000106;
+    --clear-color: #fdfeff;
+    --main-color: #23443d;
+    --secundary-color: #77c3b3;
+}
+
 body {
-    background-color: #1A1A1A;
+    background-color: var(--dark-color);
     margin: 0;
     padding: 0;
     font-family: 'Merriweather', serif;
@@ -20,7 +27,7 @@ body {
     justify-content: space-between;
 }
 .btn {
-    color: #6A00FF;
+    color: var(--secundary-color);
     width: 30px;
     height: 30px;
     background: none;
@@ -56,7 +63,7 @@ body {
     align-items: flex-end;
 }
 #portada .contenedor-principal__resumen {
-    color: #FFFFFF;
+    color: var(--clear-color);
     margin-bottom: 80px;
     width: 40%;
 }
@@ -91,7 +98,7 @@ body {
     width: 100%;
 }
 #portada .card__titulo {
-    color: #FFFFFF;
+    color: var(--clear-color);
     font-size: 16px;
 }
 
@@ -99,7 +106,7 @@ body {
 .seccion-title {
     margin: 40px 5% 10px;
     font-family: 'Poppins', sans-serif;
-    color: #6A00FF;
+    color: var(--secundary-color);
     font-weight: 300;
 }
 
@@ -131,12 +138,12 @@ body {
     width: calc(100%/10);
     margin: 0 0.5%;
     text-align: center;
-    color: #FFFFFF;
+    color: var(--clear-color);
 }
 .mejPunt-card__imagen {
     width: 100%;
 }
 .mejPunt-card__titulo {
     margin: 0;
-    color: #FFFFFF;
+    color: var(--clear-color);
 }

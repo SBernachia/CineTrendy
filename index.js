@@ -22,7 +22,6 @@ app.get("/", async (req, res) => {
         const topRatedList = await axios.get("https://api.themoviedb.org/3/movie/top_rated", config)
 
     
-
         
         res.render("index.ejs", { 
             popularMovies: popularList.data.results,
