@@ -18,6 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get("/", async (req, res) => {
     try {
         const popularList = await axios.get("https://api.themoviedb.org/3/movie/popular", config);
+        const estrenosList = await axios.get("https://api.themoviedb.org/3/movie/now_playing", config);
         const genresList = await axios.get("https://api.themoviedb.org/3/genre/movie/list", config);
         const topRatedList = await axios.get("https://api.themoviedb.org/3/movie/top_rated", config)
 
@@ -25,6 +26,7 @@ app.get("/", async (req, res) => {
         
         res.render("index.ejs", { 
             popularMovies: popularList.data.results,
+            estrenosList: estrenosList.data.results,
             topRatedList: topRatedList.data.results,
             BASE_IMAGE_URL: BASE_IMAGE_URL,
             genresList: genresList.data.genres,

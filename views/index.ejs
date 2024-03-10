@@ -14,20 +14,21 @@
 </head>
 <body>
     <header>
-        <nav class="navbar">
-            <button class="btn"><i class="fa-solid fa-bars"></i></button>
-            <button class="btn"><i class="fa-solid fa-magnifying-glass"></i></button>
-        </nav>
-    </header>
 
-    <main>
-        <section id="portada">
-            <div class="contenedor-principal">
-                <img class="contenedor-principal__imagen" src="<%=BASE_IMAGE_URL + popularMovies[0].backdrop_path %>" alt="">
-                <div class="contenedor-principal__resumen">
-                        <h2 class="resumen__titulo"><%= popularMovies[0].title %></h2>
-                        <p class="resumen__descripcion"><%= popularMovies[0].overview %></p>
-                        <p class="resumen__puntuacion">Puntuacion: <%= popularMovies[0].vote_average %></p>
+        <section class="Portada">
+            <nav class="Navbar">
+                <button class="Navbar-btn"><i class="fa-solid fa-bars"></i></button>
+                <h1 class="Navbar-titulo">CineTrendy</h1>
+                <button class="Navbar-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </nav>
+            <div class="Portada-div">
+                <img class="Portada-div-img" src="<%=BASE_IMAGE_URL + popularMovies[0].backdrop_path %>" alt="">
+                <div class="Portada-divInfo">
+                    <div>
+                        <h2 class="Portada-divInfo-tit"><%= popularMovies[0].title %></h2>
+                        <p class="Portada-divInfo-desc"><%= popularMovies[0].overview %></p>
+                    </div>
+                        <p class="Portada-divInfo-punt">Puntuacion: <%= popularMovies[0].vote_average %></p>
                 </div>
                 <div class="contenedor-secundario">
                     <div class="contenedor-card">
@@ -49,74 +50,75 @@
                 </div>
             </div> 
         </section>
-        
-        <section id="seccion-principal">
-            <h2></h2>
-            <div class="div-btn-principal">
-                <button>Populares</button>
-                <button>Estrenos</button>
-                <button>Proximamente</button>
+
+    </header>
+    <main>
+
+        <section id="trending">
+            <div class="trending__div-btn">
+                <button id="js-btn-populares" class="btn-trending btn-trending__active">Populares</button>
+                <button id="js-btn-estrenos" class="btn-trending">Mejor Calificadas</button>
             </div>
-            <div class="div-peliculas-principal">
-
-            </div>
-        </section>
-
-        <section id="mejorPuntuadas">
-            <h2 class="seccion-title">Mejores calificadas</h2>
-            <a class="btn-VerTodas" href="">Ver todas</a>
-            <div class="div-carrusel-mjPunt">
-
-                <button class="mejPunt__btn js-btn-left"><i class="fa-solid fa-chevron-left"></i></button>
-                
-                <div class="carrusel-mejPuntuadas">
-                    <div class="contenedor-cards js-div-carrusel">
+            <div class="slider-container">
+                <div class="slider">
+                    <div class="slider-card">
                         <% for( let i = 0; i < 10; i++ ) { %>
-                        <div class="mejPunt-card js-slider-card">
-                            <img class="mejPunt-card__imagen" src="<%= BASE_IMAGE_URL + topRatedList[i].backdrop_path %>" alt="">
-                            <h3 class="mejPunt-card__titulo"><%= topRatedList[i].title %></h3>
-                        </div>
+                            <div class="trending-card">
+                                <img class="trending-card__imagen" src="<%= BASE_IMAGE_URL + popularMovies[i].poster_path %>" alt="">
+                                <p class="trending-card__pntj"><%= popularMovies[i].vote_average.toFixed(1) %></p>
+                                <h3 class="trending-card__titulo"><%= popularMovies[i].title %></h3>
+                                <p class="trending-card__descripcion"><%= popularMovies[i].overview %></p> 
+                            </div>
+                        <% } %>
+                    </div>
+                    <div class="slider-card">
+                        <% for( let i = 0; i < 10; i++ ) { %>
+                            <div class="trending-card">
+                                <img class="trending-card__imagen" src="<%= BASE_IMAGE_URL + topRatedList[i].poster_path %>" alt="">
+                                <p class="trending-card__pntj"><%= topRatedList[i].vote_average.toFixed(1) %></p>
+                                <h3 class="trending-card__titulo"><%= topRatedList[i].title %></h3>
+                                <p class="trending-card__descripcion"><%= topRatedList[i].overview %></p>
+                            </div>
                         <% } %>
                     </div>
                 </div>
-                <button class="mejPunt__btn js-btn-rigth"><i class="fa-solid fa-chevron-right"></i></button>
-            
             </div>
-            
         </section>
 
-        <section>
-            <h2>Generos populares</h2>
-            <div class="genre-container">
-                <div>
-                    <h3>Acción</h3>
+        <section class="upComing">
+            <h2 class="upComing-title">Mejores calificadas</h2>
+            <div class="upComing-div">
+                <div class="upComing-div--info">
+                    <h3 class="upComing-div-titulo">titulo</h3>
+                    <p class="upComing-div-descr">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Porro optio non recusandae vero, voluptate facere temporibus nostrum quos exercitationem voluptatibus, minus perferendis, hic explicabo? Dolores voluptatum et natus voluptas ut.</p>
                 </div>
-                <div>
-                    <h3>Aventura</h3>
+                <div class="upComing-div--carrusel">
+    
+                    <button class="upComing-carrusel-btn js-btn-left"><i class="fa-solid fa-chevron-left"></i></button>
+                    
+                    <div class="upComing-carrusel-div--contenedor">
+                        <div class="upComing-carrusel-slider js-div-carrusel">
+                            <% for( let i = 0; i < 10; i++ ) { %>
+                            <div class="upComing-slider-card js-slider-card">
+                                <img class="upComing-slider-card__imagen" src="<%= BASE_IMAGE_URL + topRatedList[i].poster_path %>" alt="">
+                            </div>
+                            <% } %>
+                        </div>
+                    </div>
+    
+                    <button class="upComing-carrusel-btn js-btn-rigth"><i class="fa-solid fa-chevron-right"></i></button>
+                
                 </div>
-                <div>
-                    <h3>Ciencia Ficción</h3>
-                </div>
-                <div>
-                    <h3>Drama</h3>
-                </div>
-                <div>
-                    <h3>Animación</h3>
-                </div>
-                <div>
-                    <h3>Comedia</h3>
-                </div>
-                <div>
-                    <h3>Romance</h3>
-                </div>
-                <div>
-                    <h3>Terror</h3>
-                </div>
+                
             </div>
         </section>
-        
+
     </main>
+
+    <footer class="Footer">
+        <p class="Footer-parrafo">&#169 Sebastian Bernachia 2024</p>
+    </footer>
     
-    <script src="scripts/carrousel.js"></script>
+    <script type="module" src="scripts/main.js"></script>
 </body>
 </html>
